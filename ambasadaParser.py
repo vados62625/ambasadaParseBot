@@ -27,6 +27,17 @@ def subscribeService(serviceId, message):
     saveToFile(serviceId, message.from_user.id)
     return serviceId
 
+def unsubscribeService(serviceId, message):
+    with open("data.json", "r", encoding='utf8') as file:
+        servicesData = json.load(file)
+        if serviceId in servicesData:
+            servicesData[serviceId]["users"].remove(message.from_user.id)
+        # elif message.from_user.id not in servicesData[serviceId]["users"]:
+        #     raise Exception("Вы не подписаны на эту услугу")
+        with open("data.json", "w", encoding='utf8') as file:
+            json.dump(servicesData, file, ensure_ascii=False, indent=4)
+    return serviceId
+
 def saveToFile (serviceId, chatId):
     with open("data.json", "r", encoding='utf8') as file:
         servicesData = json.load(file)
