@@ -28,7 +28,7 @@ async def checkAvailableBooks(bookId, interval, bot):
                 if not chatIdArray == None:
                     for chatId in chatIdArray:
                         await send_message(bot, chatId, message)
-                        model.cancelSubscribe(bookId, chatId)
+                        # model.cancelSubscribe(bookId, chatId)
         # except:
         #     raise
         finally:

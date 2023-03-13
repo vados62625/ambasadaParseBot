@@ -37,6 +37,7 @@ async def showSelectedServices(message: types.Message):
 async def selectServiceToUnsubscribe(message: types.Message):
     serviceAr = model.getSelectedServicesAr(message.from_user.id)
     answer = "Вы не подписаны на услуги"
+    inline_kb = None
     if len(serviceAr) > 0:
         inline_kb = types.InlineKeyboardMarkup()
         answer = 'Выберите услугу от которой хотите отписаться:\n\n'

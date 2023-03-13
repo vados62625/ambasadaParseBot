@@ -33,4 +33,4 @@ if __name__ == '__main__':
         # asyncio.sleep(10)
     # loop = asyncio.new_event_loop()
     # asyncio.set_event_loop(loop)
-    asyncio.ensure_future(executor.start_polling(dp, skip_updates=True))
+    asyncio.ensure_future(executor.start_polling(dp, skip_updates=False))
